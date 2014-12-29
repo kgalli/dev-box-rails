@@ -2,7 +2,8 @@
 
 ## Introduction
 
-This project automates the setup of a development environment for working with Ruby on Rails.
+This project automates the setup of a development environment for working with Ruby on Rails and is inspired by
+the [rails-dev-box](https://github.com/rails/rails-dev-box) created by Xavier Noria.
 
 ## Requirements
 
@@ -35,17 +36,15 @@ Port 3000 of the host computer is forwarded to port 3000 of the virtual machine.
 
 * RVM
 
-* Bundler
-
 * SQLite3, MySQL, and Postgres
 
-* Databases and users needed to run the Active Record test suite
+* Databases and users needed
 
-* System dependencies for nokogiri, sqlite3, mysql, mysql2, and pg
+* System dependencies for nokogiri, mysql, mysql2, and pg
 
 * Memcached
 
-* PhantomJS for headless testing
+* PhantomJS for headless testing (comming soon)
 
 ## Virtual Machine Management
 
@@ -77,7 +76,7 @@ The recommended workflow is
 
 * run rails server, console or tests within the virtual machine.
 
-Just clone your Rails project into directly into the dev-box-rails directory on the host computer. 
+Just clone your Rails project directly into the dev-box-rails directory on the host computer. 
 
     host $ ls
     MIT-LICENSE  README.md  Vagrantfile  bootstrap.sh
@@ -124,7 +123,7 @@ for automatic syncs. See the post linked above for details.
 With a NFS server installed (already installed on Mac OS X), add the following to the Vagrantfile:
 
     config.vm.synced_folder '.', '/vagrant', type: 'nfs'
-    config.vm.network 'private_network', ip: '10.1.1.2' # ensure this is available
+    config.vm.network 'private_network', ip: '10.1.1.2'
 
 Then
 
