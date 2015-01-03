@@ -13,6 +13,9 @@ install 'Git' git
 install 'curl' curl libcurl4-openssl-dev
 install 'memcached' memcached
 
+# Install sqlite3 -- installed by rvm if autolibs enabled
+install 'sqlite3' libsqlite3-dev, sqlite3
+
 # Install MySQL set root password to 'root' and
 # create super user vagrant with password 'vagrant'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
