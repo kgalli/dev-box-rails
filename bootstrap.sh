@@ -6,7 +6,7 @@ function install {
     sudo apt-get -y install "$@" >/dev/null 2>&1
 }
 
-sudo apt-get update
+sudo apt-get update >/dev/null 2>&1
 
 install 'build essentials and libraries' zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 install 'Git' git
