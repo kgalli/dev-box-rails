@@ -44,7 +44,7 @@ Port 3000 of the host computer is forwarded to port 3000 of the virtual machine.
 
 * Memcached
 
-* PhantomJS for headless testing (comming soon)
+* PhantomJS for headless testing
 
 ## Virtual Machine Management
 

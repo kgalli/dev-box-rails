@@ -32,7 +32,20 @@ SQL
 install 'PostgreSQL' postgresql postgresql-contrib libpq-dev
 sudo -u postgres createuser --superuser vagrant
 
+# Install Nokogiri dependencies to be able to gem install nokogiri
 install 'Nokogiri dependencies' libxml2 libxml2-dev libxslt1-dev
+
+# Install PhantomJS to /usr/local/share and set links
+echo intalling PhantomJS
+sudo apt-get install libfontconfig1 libfreetype6 libstdc++6 >/dev/null 2>&1
+export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
+curl -LO https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 >/dev/null 2>&1
+sudo mv $PHANTOM_JS.tar.bz2 /usr/local/share/
+cd /usr/local/share/
+sudo tar xvjf $PHANTOM_JS.tar.bz2 >/dev/null 2>&1
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/share/phantomjs
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin/phantomjs
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/bin/phantomjs
 
 # Needed for docs generation.
 sudo update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
