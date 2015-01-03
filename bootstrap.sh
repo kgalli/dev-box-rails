@@ -37,17 +37,17 @@ install 'Nokogiri dependencies' libxml2 libxml2-dev libxslt1-dev
 # Needed for docs generation.
 sudo update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
-# Install Ruby via ruby version manager (rvm)
-gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable --autolibs=4
-source "$HOME/.rvm/scripts/rvm"
+# Install Ruby version manager (rbenv)
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+source ~/.bash_profile
+# Install ruby-build to enhance rbenv to install Ruby versions easily
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-rvm autolibs enable
-rvm requirements
-rvm reload
-
-rvm install 2.1.5
-rvm use --default 2.1.5
+rbenv install 2.1.5
+rbenv rehash
+rbenv global 2.1.5
 
 # Install ExecJS runtime  NodeJS via node version manager (nvm)
 curl https://raw.githubusercontent.com/creationix/nvm/v0.22.0/install.sh | bash
