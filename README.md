@@ -48,6 +48,8 @@ Port 3000 of the host computer is forwarded to port 3000 of the virtual machine.
 
 * [nodenv](https://github.com/OiNutter/nodenv) for managing Node versions
 
+* [ack](http://beyondgrep.com/) a tool like grep, optimized for programmers
+
 ## Virtual Machine Management
 
 Run

@@ -12,6 +12,8 @@ install 'build essentials and libraries' zlib1g-dev build-essential libssl-dev l
 install 'Git' git
 install 'curl' curl libcurl4-openssl-dev
 install 'memcached' memcached
+install 'ack-grep (ack)' ack-grep
+sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
 # Install sqlite3 -- installed by rvm if autolibs enabled
 install 'sqlite3' libsqlite3-dev, sqlite3
