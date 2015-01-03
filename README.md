@@ -76,16 +76,17 @@ The recommended workflow is
 
 * run rails server, console or tests within the virtual machine.
 
-Just clone your Rails project directly into the dev-box-rails directory on the host computer. 
+Just clone your Rails project directly into the projects directory (of this dev-box-rails git directory) on the host computer.
 
     host $ ls
-    MIT-LICENSE  README.md  Vagrantfile  bootstrap.sh
+    MIT-LICENSE  README.md  Vagrantfile  bootstrap.sh projects
+    host $ cd projects
     host $ git clone git@github.com:<your username>/<your rails project>.git
 
-Vagrant mounts that directory as _/vagrant_ within the virtual machine:
+Vagrant mounts that projects directory as _/vagrant_ within the virtual machine:
 
     vagrant@dev-box-rails:~$ ls /vagrant
-    MIT-LICENSE  README.md  Vagrantfile  bootstrap.sh
+    <your rails project>
 
 Install gem dependencies in the guest (vagrant ssh):
 
