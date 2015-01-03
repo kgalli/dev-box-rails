@@ -50,9 +50,13 @@ rbenv rehash
 rbenv global 2.1.5
 
 # Install ExecJS runtime  NodeJS via node version manager (nvm)
-curl https://raw.githubusercontent.com/creationix/nvm/v0.22.0/install.sh | bash
-source "$HOME/.nvm/nvm.sh"
+git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
+echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(nodenv init -)"' >> ~/.bash_profile
+source ~/.bash_profile
+git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
 
-nvm install stable
-nvm alias default stable
+nodenv install 0.10.33
+nodenv rehash
+nodenv global 0.10.33
 
