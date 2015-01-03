@@ -30,21 +30,23 @@ Port 3000 of the host computer is forwarded to port 3000 of the virtual machine.
 
 ## What's Included
 
-* Development tools
+* Build essentials
 
-* Git
+* [Git](http://git-scm.com/)
 
-* RVM
+* [SQLite3](http://www.sqlite.org/) , [MySQL](http://www.mysql.com/), and [Postgres](http://www.postgresql.org/)
 
-* SQLite3, MySQL, and Postgres
+* Setup of databases and users needed
 
-* Databases and users needed
+* System dependencies for nokogiri, mysql, and pg
 
-* System dependencies for nokogiri, mysql, mysql2, and pg
+* [Memcached](http://memcached.org/) distributed memory object caching system
 
-* Memcached
+* [PhantomJS](http://phantomjs.org/) headless Webkit for headless testing
 
-* PhantomJS for headless testing
+* [rbenv](https://github.com/sstephenson/rbenv/) for managing Ruby versions
+
+* [nodenv](https://github.com/OiNutter/nodenv) for managing Node versions
 
 ## Virtual Machine Management
 
