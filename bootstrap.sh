@@ -30,9 +30,13 @@ FLUSH PRIVILEGES;
 SQL
 
 # Install PostgreSQL and create vagrant user with
-# super user privileges
+# super user privileges and set vagrant as password
 install 'PostgreSQL' postgresql postgresql-contrib libpq-dev
 sudo -u postgres createuser --superuser vagrant
+psql -d template1 --command "ALTER USER vagrant WITH ENCRYPTED PASSWORD 'vagrant';"
+PG_HOME=$(psql --version 2>&1 | tail -1 | awk '{print $3}' | sed 's/\./ /g' | awk '{print $1 "." $2}')
+echo "host all vagrant localhost md5" | sudo tee -a /etc/postgresql/$PG_HOME/main/pg_hba.conf
+sudo service postgresql restart
 
 # Install Nokogiri dependencies to be able to gem install nokogiri
 install 'Nokogiri dependencies' libxml2 libxml2-dev libxslt1-dev
