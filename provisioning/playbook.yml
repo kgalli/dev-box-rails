@@ -36,6 +36,8 @@
       action: apt name=ack-grep update_cache=yes cache_valid_time=300
     - name: Make 'ack-grep' binary accessable as 'ack'
       shell: dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+      args:
+        creates: /usr/bin/ack
 
     - name: install sqlite3
       action: apt name={{ item }} update_cache=yes cache_valid_time=300
