@@ -1,0 +1,58 @@
+
+- name: Install build essentials and libraries
+  sudo: yes
+  apt: name={{ item }} update_cache=yes cache_valid_time=300
+  with_items:
+  # Install build essentials and librariesems:
+  - zlib1g-dev
+  - build-essential
+  - libssl-dev
+  - libreadline-dev
+  - libyaml-dev
+  - libgdbm-dev
+  - libncurses5-dev
+  - automake
+  - libtool
+  - bison
+  - libffi-dev
+  # Install Git
+  - git
+  # Install Curl
+  - curl
+  - libcurl4-openssl-dev
+  # Install Memcached
+  - memcached
+  # Install Ack
+  - ack-grep
+  # Install sqlite3
+  - libsqlite3-dev
+  - sqlite3
+  # Install Postgresql
+  - postgresql
+  - postgresql-contrib
+  - libpq-dev
+  - python-psycopg2 # Required for Ansible to interact with postgres
+  # Nokogiri dependencies
+  - libxml2
+  - libxml2-dev
+  - libxslt1-dev
+
+
+- name: Make 'ack-grep' binary accessable as 'ack'
+  sudo: yes
+  command: dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+  args:
+    creates: /usr/bin/ack
+
+- name: Allow password authentication for local socket users
+  sudo: yes
+  copy: src=pg_hba.conf dest=/etc/postgresql/9.3/main/pg_hba.conf force=yes
+  notify:
+      - Restart Postgres
+
+- name: Create PostgreSQL User
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: name={{ pg_db_user }} password={{ pg_db_password }} state=present role_attr_flags=SUPERUSER
+
+

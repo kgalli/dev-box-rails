@@ -1,0 +1,3 @@
+pg_db_name: vagrant
+pg_db_user: vagrant
+pg_db_password: vagrant
