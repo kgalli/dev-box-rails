@@ -16,7 +16,7 @@ install 'ack-grep (ack)' ack-grep
 sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
 # Install sqlite3 -- installed by rvm if autolibs enabled
-install 'sqlite3' libsqlite3-dev, sqlite3
+install 'sqlite3' libsqlite3-dev sqlite3
 
 # Install MySQL set root password to 'root' and
 # create super user vagrant with password 'vagrant'
