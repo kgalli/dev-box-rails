@@ -75,7 +75,7 @@ echo 'eval "$(nodenv init -)"' >> ~/.bash_profile
 source ~/.bash_profile
 git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
 
-nodenv install 0.10.33
+nodenv install 0.12.7
 nodenv rehash
-nodenv global 0.10.33
+nodenv global 0.12.7
 
