@@ -64,9 +64,9 @@ source ~/.bash_profile
 # Install ruby-build to enhance rbenv to install Ruby versions easily
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-rbenv install 2.1.5
+rbenv install 2.1.7
 rbenv rehash
-rbenv global 2.1.5
+rbenv global 2.1.7
 
 # Install ExecJS runtime  NodeJS via node version manager (nvm)
 git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
